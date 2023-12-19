@@ -31,7 +31,7 @@ function ServicesSection() {
         }}
         className={styles.modalContainer}
       >
-        <TransitionsModal open={open} modalName={modalName} />
+        <TransitionsModal open={open} modalName={modalName} handleClose={()=>setOpen(false)} />
       </Modal>
       <div className={styles.servicesContainer__header}>ПОСЛУГИ</div>
       <div className={styles.servicesContainer__service} onClick={()=>handleOpen(COMMUNICATION_STRATEGY)}>
@@ -74,7 +74,7 @@ function ServicesSection() {
           SMM
         </div>
         <div className={styles.servicesContainer__infoList}>
-          <div className={styles.servicesContainer__infoListItem}>
+          <div  className={styles.servicesContainer__infoListItem}>
             Щомісячний супровід сторінок бренду
           </div>
         </div>
@@ -84,8 +84,7 @@ function ServicesSection() {
           <Image
             alt="arrow"
             src={LinkArrow}
-            className={styles.servicesContainer__serviceIcon}
-          />
+            className={styles.servicesContainer__serviceIcon}         />
           БРЕНДІНГ
         </div>
         <div className={styles.servicesContainer__infoList}>

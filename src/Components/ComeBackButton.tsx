@@ -3,10 +3,11 @@ import Arrow from "../Assets/Images/HomePageImages/PopUp/ComeBackArrow.svg";
 import Image from "next/image";
 import { useState } from "react";
 
-function ComeBackButton() {
+function ComeBackButton({ onClose }: any) {
   const [isPressed, setIsPressed] = useState(false);
   return (
     <button
+      onClick={onClose}
       onMouseUp={() => setIsPressed(false)}
       onMouseDown={() => setIsPressed(true)}
       className={`${styles.comeBackButton} ${

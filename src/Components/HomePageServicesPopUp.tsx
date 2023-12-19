@@ -15,7 +15,11 @@ import PopUpArrow from "../Assets/Images/HomePageImages/PopUp/PopUpArrow.svg";
 import Image from "next/image";
 import ComeBackButton from "./ComeBackButton";
 
-export default function TransitionsModal({ open, modalName }: any) {
+export default function TransitionsModal({
+  open,
+  modalName,
+  handleClose,
+}: any) {
   return (
     <Fade in={open}>
       <Box className={styles.modalPopUp}>
@@ -23,58 +27,264 @@ export default function TransitionsModal({ open, modalName }: any) {
           <div className={styles.modalPopUp__imagesList}>
             {modalName === SMM_STRATEGY && (
               <div className={styles.modalPopUp__imageContainer}>
-                <div className={styles.modalPopUp__imageContainerTopLeftImagesText}>30 днів</div>
+                <div
+                  className={styles.modalPopUp__imageContainerTopLeftImagesText}
+                >
+                  30 днів
+                </div>
                 <div className={styles.modalPopUp__smmStrategyImage}></div>
+                <div className={styles.modalPopUp__descriptionBigger}>
+                  <div className={styles.modalPopUp__descriptionItem}>
+                    стратег
+                  </div>
+                  <div className={styles.modalPopUp__descriptionItem}>
+                    дизайнер
+                  </div>
+                  <div className={styles.modalPopUp__descriptionItem}>
+                    копірайтер
+                  </div>
+                </div>
               </div>
             )}
             {modalName === SMM && (
               <div className={styles.modalPopUp__imageContainer}>
-                <div className={styles.modalPopUp__imageContainerTopLeftImagesText}>30 днів</div>
+                <div
+                  className={styles.modalPopUp__imageContainerTopLeftImagesText}
+                >
+                  30 днів
+                </div>
                 <div className={styles.modalPopUp__smmImage}></div>
+                <div className={styles.modalPopUp__description}>
+                  <div className={styles.modalPopUp__descriptionItem}>
+                    копірайтер
+                  </div>
+                  <div className={styles.modalPopUp__descriptionItem}>
+                    сторіс-менеджер
+                  </div>
+                  <div className={styles.modalPopUp__descriptionItem}>
+                    дизайнер
+                  </div>
+                  <div className={styles.modalPopUp__descriptionItem}>
+                    контент-менеджер
+                  </div>
+                </div>
               </div>
             )}
             {modalName === COMMUNICATION_STRATEGY && (
               <div className={styles.modalPopUp__imageContainer}>
-                <div className={styles.modalPopUp__imageContainerTopLeftImagesText}>60 днів</div>
+                <div
+                  className={styles.modalPopUp__imageContainerTopLeftImagesText}
+                >
+                  60 днів
+                </div>
                 <div
                   className={styles.modalPopUp__communicationStrategyImage}
                 ></div>
+                <div className={styles.modalPopUp__descriptionBigger}>
+                  <div className={styles.modalPopUp__descriptionItem}>
+                    стратег
+                  </div>
+                  <div className={styles.modalPopUp__descriptionItem}>
+                    дизайнер
+                  </div>
+                  <div className={styles.modalPopUp__descriptionItem}>
+                    копірайтер
+                  </div>
+                </div>
               </div>
             )}
-            {modalName === BRAND && (
-              <div className={styles.modalPopUp__imageContainer}>
-                <div className={styles.modalPopUp__imageContainerTopLeftImagesText}>неймінг</div>
-                <div className={styles.modalPopUp__brandFirstImage}></div>
-              </div>
-            )}
-            {modalName === BRAND && (
-              <div className={styles.modalPopUp__imageContainer}>
-                <div className={styles.modalPopUp__imageContainerTopLeftImagesText}>логобук</div>
-                <div className={styles.modalPopUp__brandSecondImage}></div>
-              </div>
-            )}
-            {modalName === BRAND && (
-              <div className={styles.modalPopUp__imageContainer}>
-                <div className={styles.modalPopUp__imageContainerTopLeftImagesText}>брендбук</div>
-                <div className={styles.modalPopUp__brandThirdImage}></div>
-              </div>
-            )}
+            <div className={styles.modalPopUp__brandModalContainer}>
+              {modalName === BRAND && (
+                <div className={styles.modalPopUp__imageContainer}>
+                  <div
+                    className={
+                      styles.modalPopUp__imageContainerTopLeftImagesText
+                    }
+                  >
+                    неймінг
+                  </div>
+                  <div
+                    className={
+                      styles.modalPopUp__imageContainerTopRightImagesText
+                    }
+                  >
+                    14 днів
+                  </div>
+                  <div className={styles.modalPopUp__brandFirstImage}></div>
+                  <div className={styles.modalPopUp__description}>
+                    <div className={styles.modalPopUp__descriptionItem}>
+                      стратег
+                    </div>
+                    <div className={styles.modalPopUp__descriptionItem}>
+                      копірайтер
+                    </div>
+                  </div>
+                </div>
+              )}
+              {modalName === BRAND && (
+                <div className={styles.modalPopUp__informationItem}>
+                  <div className={styles.modalPopUp__informationItemHeader}>
+                    НЕЙМІНГ
+                  </div>
+                  <div className={styles.modalPopUp__informationItemTitle}>
+                    Брифінг (1 год)
+                  </div>
+                  <div className={styles.modalPopUp__informationItemTitle}>
+                    Розробка 10 унікальних варіантів неймінгу з доступними
+                    доменами
+                  </div>
+                </div>
+              )}
+            </div>
+            <div className={styles.modalPopUp__brandModalContainer}>
+              {modalName === BRAND && (
+                <div className={styles.modalPopUp__imageContainer}>
+                  <div
+                    className={
+                      styles.modalPopUp__imageContainerTopLeftImagesText
+                    }
+                  >
+                    логобук
+                  </div>
+                  <div
+                    className={
+                      styles.modalPopUp__imageContainerTopRightImagesText
+                    }
+                  >
+                    20 днів
+                  </div>
+                  <div className={styles.modalPopUp__brandSecondImage}></div>
+                  <div className={styles.modalPopUp__description}>
+                    <div className={styles.modalPopUp__descriptionItem}>
+                      дизайнер
+                    </div>
+                    <div className={styles.modalPopUp__descriptionItem}>
+                      стратег
+                    </div>
+                  </div>
+                </div>
+              )}
+              {modalName === BRAND && (
+                <div className={styles.modalPopUp__informationItem}>
+                  <div className={styles.modalPopUp__informationItemHeader}>
+                    ЛОГОБУК
+                  </div>
+                  <div className={styles.modalPopUp__informationItemTitle}>
+                    Розробка 5 концепцій лого
+                  </div>
+                  <div className={styles.modalPopUp__informationItemTitle}>
+                    Оформлення логобуку з обраним концептом
+                  </div>
+                  <div className={styles.modalPopUp__informationItemTitle}>
+                    Інструкція та правила використання логотипу
+                  </div>
+                </div>
+              )}
+            </div>
+            <div className={styles.modalPopUp__brandModalContainer}>
+              {modalName === BRAND && (
+                <div className={styles.modalPopUp__imageContainer}>
+                  <div
+                    className={
+                      styles.modalPopUp__imageContainerTopLeftImagesText
+                    }
+                  >
+                    брендбук
+                  </div>
+                  <div
+                    className={
+                      styles.modalPopUp__imageContainerTopRightImagesText
+                    }
+                  >
+                    30 днів
+                  </div>
+                  <div className={styles.modalPopUp__brandThirdImage}></div>
+                  <div className={styles.modalPopUp__description}>
+                    <div className={styles.modalPopUp__descriptionItem}>
+                      дизайнер
+                    </div>
+                    <div className={styles.modalPopUp__descriptionItem}>
+                      стратег
+                    </div>
+                  </div>
+                </div>
+              )}
+              {modalName === BRAND && (
+                <div className={styles.modalPopUp__informationItem}>
+                  <div className={styles.modalPopUp__informationItemHeader}>
+                    БРЕНДБУК
+                  </div>
+                  <div className={styles.modalPopUp__informationItemTitle}>
+                    4 концепти айдентики та лого
+                  </div>
+                  <div className={styles.modalPopUp__informationItemTitle}>
+                    10 бренд-елементів (макапів)
+                  </div>
+                  <div className={styles.modalPopUp__informationItemTitle}>
+                    5 макетів з обраних бренд-елементів
+                  </div>
+                  <div className={styles.modalPopUp__informationItemTitle}>
+                    Формування бренд-буку (лого, шрифти,фірмові елементи,
+                    прототипи дизайну, брендування соціальних мереж)
+                  </div>
+                  <div className={styles.modalPopUp__informationItemTitle}>
+                    Гайд ( інструкція з використання)
+                  </div>
+                </div>
+              )}
+            </div>
             {modalName === DESIGN && (
               <div className={styles.modalPopUp__imageContainer}>
-                <div className={styles.modalPopUp__imageContainerTopLeftImagesText}>14 - 30 днів</div>
+                <div
+                  className={styles.modalPopUp__imageContainerTopLeftImagesText}
+                >
+                  14 - 30 днів
+                </div>
                 <div className={styles.modalPopUp__designImage}></div>
+                <div className={styles.modalPopUp__description}>
+                  <div className={styles.modalPopUp__descriptionItem}>
+                    копірайтер
+                  </div>
+                  <div className={styles.modalPopUp__descriptionItem}>
+                    дизайнер
+                  </div>
+                  <div className={styles.modalPopUp__descriptionItem}>
+                    веб-розробник
+                  </div>
+                </div>
               </div>
             )}
             {modalName === PROMOTION && (
               <div className={styles.modalPopUp__imageContainer}>
-                <div className={styles.modalPopUp__imageContainerTopLeftImagesText}>30 днів</div>
+                <div
+                  className={styles.modalPopUp__imageContainerTopLeftImagesText}
+                >
+                  30 днів
+                </div>
                 <div className={styles.modalPopUp__promotionImage}></div>
+                <div className={styles.modalPopUp__description}>
+                  <div className={styles.modalPopUp__descriptionItem}>
+                    контент-менеджер
+                  </div>
+                  <div className={styles.modalPopUp__descriptionItem}>
+                    копірайтер
+                  </div>
+                </div>
               </div>
             )}
             {modalName === PRODUCTION && (
               <div className={styles.modalPopUp__imageContainer}>
-                <div className={styles.modalPopUp__imageContainerTopLeftImagesText}>10 днів</div>
+                <div
+                  className={styles.modalPopUp__imageContainerTopLeftImagesText}
+                >
+                  10 днів
+                </div>
                 <div className={styles.modalPopUp__productionImage}></div>
+                <div className={styles.modalPopUp__description}>
+                  <div className={styles.modalPopUp__descriptionItem}>
+                    контент-менеджер
+                  </div>
+                </div>
               </div>
             )}
           </div>
@@ -248,59 +458,6 @@ export default function TransitionsModal({ open, modalName }: any) {
                 </div>
               </div>
             )}
-            {modalName === BRAND && (
-              <div className={styles.modalPopUp__informationItem}>
-                <div className={styles.modalPopUp__informationItemHeader}>
-                  НЕЙМІНГ
-                </div>
-                <div className={styles.modalPopUp__informationItemTitle}>
-                  Брифінг (1 год)
-                </div>
-                <div className={styles.modalPopUp__informationItemTitle}>
-                  Розробка 10 унікальних варіантів неймінгу з доступними
-                  доменами
-                </div>
-              </div>
-            )}
-            {modalName === BRAND && (
-              <div className={styles.modalPopUp__informationItem}>
-                <div className={styles.modalPopUp__informationItemHeader}>
-                  ЛОГОБУК
-                </div>
-                <div className={styles.modalPopUp__informationItemTitle}>
-                  Розробка 5 концепцій лого
-                </div>
-                <div className={styles.modalPopUp__informationItemTitle}>
-                  Оформлення логобуку з обраним концептом
-                </div>
-                <div className={styles.modalPopUp__informationItemTitle}>
-                  Інструкція та правила використання логотипу
-                </div>
-              </div>
-            )}
-            {modalName === BRAND && (
-              <div className={styles.modalPopUp__informationItem}>
-                <div className={styles.modalPopUp__informationItemHeader}>
-                  БРЕНДБУК
-                </div>
-                <div className={styles.modalPopUp__informationItemTitle}>
-                  4 концепти айдентики та лого
-                </div>
-                <div className={styles.modalPopUp__informationItemTitle}>
-                  10 бренд-елементів (макапів)
-                </div>
-                <div className={styles.modalPopUp__informationItemTitle}>
-                  5 макетів з обраних бренд-елементів
-                </div>
-                <div className={styles.modalPopUp__informationItemTitle}>
-                  Формування бренд-буку (лого, шрифти,фірмові елементи,
-                  прототипи дизайну, брендування соціальних мереж)
-                </div>
-                <div className={styles.modalPopUp__informationItemTitle}>
-                  Гайд ( інструкція з використання)
-                </div>
-              </div>
-            )}
             {modalName === DESIGN && (
               <div className={styles.modalPopUp__informationItem}>
                 <div className={styles.modalPopUp__informationItemHeader}>
@@ -384,8 +541,7 @@ export default function TransitionsModal({ open, modalName }: any) {
             )}
           </div>
         </div>
-        <ComeBackButton />
-        {/* <div className={styles.modalPopUp__goBack}>порвернутися назад</div> */}
+        <ComeBackButton onClose={handleClose} />
       </Box>
     </Fade>
   );
